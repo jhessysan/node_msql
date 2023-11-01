@@ -1,47 +1,67 @@
 const express = require("express")
-const exphbs = require ("express-handlebars")
-const maysql = require ("mysql2")
+const exphbs = require("express-handlebars")
+const mysql = require ("mysql2")
 
 const app = express()
 
- // definindo handlebars  com template engine
- app.engine("handlebars", exphbs.engine())
- app.set ("view engine" , handlebars)
+//definindo handlebars
+app.engine("handlebars", exphbs.engine())
+app.set("view engine", "handlebars")
 
- // pasta de arquivos estáticos como css, imagens
- app.use(express.static("public"))
+//pasta de arquivo
+app.use(express.static("public"))
 
-// trabalhar com dados no formato json
-app.use (express.urlencoded({
-    extended:true
+//trabalhar com dados json
+app.use(express.urlencoded({
+    extended: true
 }))
 
 app.use(express.json())
 
-// rotas 
+//rotas
+app.post("/register/save", (res, req)=> {
+    const {title, pageqty} = req.body
 
-app.get("/", ( requisicao, resposta) => {
-    resposta.render("home")
+    const query = `
+        INSERT INTO books (title, pegaqty)
+        VALUES ('${title}', '${pageqty}')
+    `
+    conn.query(query, (error)=>{
+        if (error){
+            console.log(error)
+            return
+            res.redirect("/")
+        }
+    })
 })
-// conexao co mysql
-const con = mysql.createconnection({
+
+app.get("/register",(req, res)=>{
+    res.render("register")
+})
+
+app.get("/",(req, res)=>{
+    res.render("home")
+})
+
+//conexão com mysql
+const conn = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "root"
-    database: "nodemysql"
+    user: "hoot",
+    password: "hoot",
+    database:"nodemysql",
     port: 3307
+
 })
 
-continue.connect((error) =>{
+conn.connect((error)=> {
     if (error){
         console.log(error)
         return
     }
 
-    console.log("conectado ao mysql!")
-    
-    app.listen(3000,()=>{
-        console.log("Servidor rodando na porta 3000!")
-    })
+    console.log("Conectado ao mysql")
 
+    app.listen(3000),()=>{
+        console.log("servidor rodando na porta 3000!")
+    }
 })
