@@ -1,34 +1,30 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'lucida sans unicode', Geneva, verdana, sans-serif;
-    
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
 }
-
-body {
+body{
     padding: 2rem;
-
 }
 ul,li{
-    list-style:nome;
-
+    list-style: none;
 }
 header{
-    nargin-botton:
+    margin-bottom: 2rem;
 }
-
-
-header ul {
+header ul{
     display: flex;
     gap: 3rem;
 }
-.books{
+.book{
     border: 1px solid #ccc;
     width: 30rem;
     padding: 1rem;
     border-radius: 1rem;
 }
-.books + .books{
-    border-top: 1rem;
+.book + .book{
+    margin-top: 1rem;
 }
