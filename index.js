@@ -1,3 +1,4 @@
+const { response } = require("express")
 const express = require("express")
 const exphbs = require("express-handlebars")
 const mysql = require ("mysql2")
@@ -15,6 +16,7 @@ app.use(express.static("public"))
 app.use(express.urlencoded({
     extended: true
 }))
+//crud > CREATE, READ, UPDATE, DELETE
 
 app.use(express.json())
 
@@ -40,14 +42,23 @@ app.get("/register",(req, res)=>{
 })
 
 app.get("/",(req, res)=>{
-    res.render("home")
+    const sql = 'seletec * from brooks'
+    Comment.query(sql,(error,data)=>{
+        if (error) {
+            return console.log(error)
+        }
+
+        const books = data 
+
+        response.render("home",{ books})
+    })
 })
 
 //conexão com mysql
 const conn = mysql.createConnection({
     host: "localhost",
-    user: "hoot",
-    password: "hoot",
+    user: "root",
+    password: "root",
     database:"nodemysql",
     port: 3307
 

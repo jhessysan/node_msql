@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'lucida sans unicode', Geneva, verdana, sans-serif;
+    
+}
+
+body {
+    padding: 2rem;
+
+}
+ul,li{
+    list-style:nome;
+
+}
+header{
+    nargin-botton:
+}
+
+
+header ul {
+    display: flex;
+    gap: 3rem;
+}
+.books{
+    border: 1px solid #ccc;
+    width: 30rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.books + .books{
+    border-top: 1rem;
+}
