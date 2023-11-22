@@ -44,7 +44,8 @@ header ul{
     display: flex;
     gap: 1rem;
 }
-.buttons a{
+.buttons a,
+.buttons button{
     display: block;
     text-decoration: none;
     padding: .5 rem;
@@ -67,4 +68,16 @@ header ul{
  .buttons .editar:hover{
     background: white;
     color: #ffc107;
+ }
+
+ 
+ .buttons .excluir{
+    border:  1px solid #dc3545;
+    background: #dc3545;
+    color: white;
+ }
+ .buttons .editar:hover{
+    background: white;
+    color: #dc3545;
+    cursor: pointer;
  }
