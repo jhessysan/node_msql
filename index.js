@@ -26,8 +26,13 @@ app.post("/delete", (request,response)=> {
     const {id}= request.body
     
     const sql = `
+<<<<<<< HEAD
     DELETE FROM books 
     WHERE id = ${id}
+=======
+    delete From books 
+    were id = ${id}
+>>>>>>> d1913f146817b1523c1772e922893e6a32a4df5c
     `
     conn.query(sql,(error) =>{
         if (error) {
